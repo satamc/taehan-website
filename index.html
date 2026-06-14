@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taehan International – Korean Beauty Thailand</title>
+  <meta name="description" content="เครื่องสำอางเกาหลีคุณภาพพรีเมียม นำเข้าโดยตรง ผ่าน FDA ไทย โดย Taehan International" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --pink:       #D4537E;
+      --pink-light: #FBEAF0;
+      --pink-mid:   #F4C0D1;
+      --navy:       #1a1a2e;
+      --text:       #1a1a1a;
+      --muted:      #666;
+      --soft:       #f7f7f7;
+      --border:     #ebebeb;
+      --white:      #ffffff;
+      --shopee:     #EE4D2D;
+      --lazada:     #6D2E96;
+      --tiktok:     #010101;
+      --radius-sm:  8px;
+      --radius-md:  12px;
+      --radius-lg:  20px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans Thai', 'DM Sans', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--text);
+      text-transform: uppercase;
+    }
+    .nav-logo span { color: var(--pink); }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--pink); }
+    .nav-cta {
+      background: var(--pink);
+      color: #fff !important;
+      padding: 7px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 13px !important;
+      font-weight: 500;
+    }
+    .nav-cta:hover { background: #c0446e !important; color: #fff !important; }
+
+    /* HERO */
+    .hero {
+      padding: 80px 32px 72px;
+      text-align: center;
+      background: linear-gradient(160deg, #FDF5F8 0%, #F5F0FF 60%, #EFF7FF 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(212,83,126,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--white);
+      border: 1px solid var(--pink-mid);
+      color: var(--pink);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 5px 14px;
+      border-radius: 99px;
+      margin-bottom: 24px;
+      letter-spacing: 0.03em;
+    }
+    .hero h1 {
+      font-size: clamp(26px, 5vw, 40px);
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.3;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--pink);
+    }
+    .hero p {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 500px;
+      margin: 0 auto 32px;
+      line-height: 1.75;
+      font-weight: 300;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--pink);
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: #c0446e; transform: translateY(-1px); }
+    .btn-secondary {
+      background: var(--white);
+      color: var(--text);
+      padding: 12px 28px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .btn-secondary:hover { border-color: var(--pink); color: var(--pink); transform: translateY(-1px); }
+
+    /* TRUST BAR */
+    .trust-bar {
+      background: var(--navy);
+      padding: 16px 32px;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.75);
+      font-size: 13px;
+    }
+    .trust-item span { font-size: 16px; }
+
+    /* PRODUCTS */
+    .products {
+      padding: 64px 32px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--pink);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .section-heading {
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+    .section-sub {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .product-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .product-card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+      transform: translateY(-3px);
+    }
+    .product-visual {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 56px;
+      position: relative;
+    }
+    .v-pink  { background: #FDF0F5; }
+    .v-blue  { background: #F0F5FD; }
+    .v-green { background: #F0FAF5; }
+    .v-amber { background: #FDF6EC; }
+
+    .coming-badge {
+      position: absolute;
+      top: 12px; right: 12px;
+      background: var(--white);
+      color: var(--pink);
+      font-size: 10px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 99px;
+      border: 1px solid var(--pink-mid);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .product-body { padding: 16px 18px 18px; }
+    .product-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .product-desc {
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+    .product-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+    .tag {
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 99px;
+      background: var(--pink-light);
+      color: var(--pink);
+      font-weight: 500;
+    }
+    .buy-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .buy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: opacity 0.15s, transform 0.15s;
+    }
+    .buy-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+    .buy-btn svg { width: 13px; height: 13px; }
+    .btn-shopee { background: #FFF0EB; color: var(--shopee); }
+    .btn-lazada { background: #F3EAFF; color: var(--lazada); }
+    .btn-tiktok { background: #f0f0f0; color: var(--tiktok); }
+    .btn-soon   { background: var(--soft); color: #999; cursor: default; }
+
+    /* WHY US */
+    .why {
+      background: var(--soft);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 64px 32px;
+    }
+    .why-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .why-list { display: flex; flex-direction: column; gap: 16px; margin-top: 32px; }
+    .why-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px 18px;
+    }
+    .why-icon {
+      width: 36px; height: 36px;
+      background: var(--pink-light);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .why-text h4 { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+    .why-text p  { font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .stat-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+    }
+    .stat-num {
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--pink);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-label { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+    /* CTA BANNER */
+    .cta-banner {
+      background: var(--navy);
+      padding: 64px 32px;
+      text-align: center;
+    }
+    .cta-banner h2 {
+      font-size: 26px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .cta-banner p { font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 28px; }
+    .cta-links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .cta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 11px 22px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .cta-link:hover { opacity: 0.85; transform: translateY(-1px); }
+    .cta-shopee { background: var(--shopee); color: #fff; }
+    .cta-lazada { background: var(--lazada); color: #fff; }
+    .cta-tiktok { background: #fff; color: var(--tiktok); }
+
+    /* FOOTER */
+    footer {
+      background: #111;
+      padding: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-logo { font-size: 14px; font-weight: 600; color: #fff; letter-spacing: 0.08em; }
+    .footer-logo span { color: var(--pink); }
+    .footer-info { font-size: 12px; color: #666; }
+    .footer-info a { color: #888; text-decoration: none; }
+    .footer-info a:hover { color: var(--pink); }
+
+    /* RESPONSIVE */
+    @media (max-width: 700px) {
+      nav { padding: 0 16px; }
+      .nav-links { display: none; }
+      .hero { padding: 56px 20px 48px; }
+      .trust-bar { gap: 16px; padding: 14px 16px; }
+      .products { padding: 48px 16px; }
+      .why { padding: 48px 16px; }
+      .why-inner { grid-template-columns: 1fr; }
+      .stats-grid { display: none; }
+      footer { flex-direction: column; text-align: center; padding: 24px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">TAEHAN <span>INT'L</span></div>
+  <ul class="nav-links">
+    <li><a href="#products">สินค้า</a></li>
+    <li><a href="#why">เกี่ยวกับเรา</a></li>
+    <li><a href="#contact">ติดต่อ</a></li>
+    <li><a href="#products" class="nav-cta">ดูสินค้า</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">
+    🇰🇷 นำเข้าตรงจากเกาหลี · ผ่าน FDA ไทย
+  </div>
+  <h1>เครื่องสำอางเกาหลี<br><em>คุณภาพพรีเมียม</em><br>ที่คุณไว้ใจได้</h1>
+  <p>Taehan International คัดสรรสินค้าความงามจากเกาหลีอย่างถูกกฎหมาย นำเข้าโดยตรง พร้อมใบรับรอง FDA ไทยทุกผลิตภัณฑ์</p>
+  <div class="hero-actions">
+    <a href="#products" class="btn-primary">ดูสินค้าทั้งหมด</a>
+    <a href="#why" class="btn-secondary">ทำไมต้อง Taehan?</a>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><span>✓</span> นำเข้าถูกกฎหมาย 100%</div>
+  <div class="trust-item"><span>✓</span> ผ่านมาตรฐาน FDA ไทย</div>
+  <div class="trust-item"><span>✓</span> บริษัทจดทะเบียนไทย</div>
+  <div class="trust-item"><span>✓</span> ตรงจากเกาหลีโดยตรง</div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="section-eyebrow">สินค้าของเรา</div>
+  <div class="section-heading">K-Beauty ที่เราคัดมาเพื่อคุณ</div>
+  <div class="section-sub">กำลังเพิ่มสินค้าใหม่เข้าร้าน — ติดตามสินค้าที่กำลังจะมาเร็วๆ นี้</div>
+
+  <div class="product-grid">
+
+    <!-- Product 1 -->
+    <div class="product-card">
+      <div class="product-visual v-pink">
+        🌸
+        <span class="coming-badge">Coming Soon</span>
+      </div>
+      <div class="product-body">
+        <div class="product-name">Hydrating Toner</div>
+        <div class="product-desc">โทนเนอร์บำรุงผิวชุ่มชื้นล้ำลึก สูตรเกาหลี เหมาะกับทุกสภาพผิว</div>
+        <div class="product-tags">
+          <span class="tag">Hydrating</span>
+          <span class="tag">All Skin</span>
+        </div>
+        <div class="buy-row">
+          <span class="buy-btn btn-soon">เร็วๆ นี้</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product-card">
+      <div class="product-visual v-blue">
+        ✨
+        <span class="coming-badge">Coming Soon</span>
+      </div>
+      <div class="product-body">
+        <div class="product-name">Glow Serum</div>
+        <div class="product-desc">เซรั่มบำรุงผิวกระจ่างใส ช่วยลดรอยจุดด่างดำและผิวหมองคล้ำ</div>
+        <div class="product-tags">
+          <span class="tag">Brightening</span>
+          <span class="tag">Anti-dark spot</span>
+        </div>
+        <div class="buy-row">
+          <span class="buy-btn btn-soon">เร็วๆ นี้</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product-card">
+      <div class="product-visual v-green">
+        🍃
+        <span class="coming-badge">Coming Soon</span>
+      </div>
+      <div class="product-body">
+        <div class="product-name">Calming Cream</div>
+        <div class="product-desc">ครีมบำรุงสูตรอ่อนโยน ลดการระคายเคือง เหมาะกับผิวแพ้ง่าย</div>
+        <div class="product-tags">
+          <span class="tag">Sensitive</span>
+          <span class="tag">Soothing</span>
+        </div>
+        <div class="buy-row">
+          <span class="buy-btn btn-soon">เร็วๆ นี้</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 4 -->
+    <div class="product-card">
+      <div class="product-visual v-amber">
+        🌟
+        <span class="coming-badge">Coming Soon</span>
+      </div>
+      <div class="product-body">
+        <div class="product-name">Sun Cushion SPF50+</div>
+        <div class="product-desc">คุชชั่นกันแดดสูตรเกาหลี ปกป้องผิวจาก UV พร้อมให้ผิวดูเนียนสวย</div>
+        <div class="product-tags">
+          <span class="tag">SPF50+</span>
+          <span class="tag">PA++++</span>
+        </div>
+        <div class="buy-row">
+          <span class="buy-btn btn-soon">เร็วๆ นี้</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why" id="why">
+  <div class="why-inner">
+    <div>
+      <div class="section-eyebrow">ทำไมต้องเรา</div>
+      <div class="section-heading">Taehan คือสะพาน<br>ระหว่างคุณกับ K-Beauty</div>
+      <div class="why-list">
+        <div class="why-item">
+          <div class="why-icon">📋</div>
+          <div class="why-text">
+            <h4>นำเข้าถูกกฎหมาย 100%</h4>
+            <p>บริษัทจดทะเบียนไทย ทุน 1,000,000 บาท พร้อมใบอนุญาตนำเข้าเต็มรูปแบบ</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">🔬</div>
+          <div class="why-text">
+            <h4>ผ่านมาตรฐาน FDA ไทย</h4>
+            <p>ทุกผลิตภัณฑ์ผ่านการรับรองจากสำนักงานคณะกรรมการอาหารและยา</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">🚚</div>
+          <div class="why-text">
+            <h4>จัดส่งทั่วไทย</h4>
+            <p>นำเข้าตรงจากเกาหลี จัดส่งถึงมือคุณผ่านช่องทางที่เชื่อถือได้</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-num">35%</div>
+        <div class="stat-label">K-Beauty เติบโตต่อปีในไทย</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">#1</div>
+        <div class="stat-label">ตลาด K-Beauty ใหญ่สุดในอาเซียน</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">1M฿</div>
+        <div class="stat-label">ทุนจดทะเบียน พร้อมดำเนินธุรกิจ</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">FDA</div>
+        <div class="stat-label">ได้รับรองทุกผลิตภัณฑ์</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner" id="contact">
+  <h2>พบสินค้าของเราได้ที่</h2>
+  <p>ช้อปผ่านช่องทางที่คุณสะดวก — มีหลายแพลตฟอร์มให้เลือก</p>
+  <div class="cta-links">
+    <a href="https://shopee.co.th" target="_blank" rel="noopener" class="cta-link cta-shopee">
+      🛒 Shopee
+    </a>
+    <a href="https://lazada.co.th" target="_blank" rel="noopener" class="cta-link cta-lazada">
+      🛍️ Lazada
+    </a>
+    <a href="https://tiktok.com" target="_blank" rel="noopener" class="cta-link cta-tiktok">
+      🎵 TikTok Shop
+    </a>
+  </div>
+  <p style="margin-top:28px; font-size:13px; color:rgba(255,255,255,0.45);">
+    ติดต่อองค์กร: contact@taehaninternational.com
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">TAEHAN <span>INT'L</span></div>
+  <div class="footer-info">
+    © 2025 Taehan International Co., Ltd. · Bangkok, Thailand ·
+    <a href="mailto:contact@taehaninternational.com">contact@taehaninternational.com</a>
+  </div>
+</footer>
+
+</body>
+</html>

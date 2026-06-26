@@ -54,12 +54,16 @@
       justify-content: space-between;
     }
     .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
       font-size: 15px;
       font-weight: 600;
       letter-spacing: 0.08em;
       color: var(--text);
       text-transform: uppercase;
     }
+    .nav-logo img { height: 32px; width: auto; display: block; }
     .nav-logo span { color: var(--pink); }
     .nav-links {
       display: flex;
@@ -517,6 +521,18 @@
       color: #999;
       margin-top: 4px;
     }
+    .form-error {
+      font-size: 12px;
+      color: #d4334f;
+      margin-top: 6px;
+      display: none;
+      font-weight: 500;
+    }
+    .form-error.show { display: block; }
+    .form-group input.invalid {
+      border-color: #d4334f;
+      background: #fef5f6;
+    }
     .btn-line {
       display: flex;
       align-items: center;
@@ -530,6 +546,9 @@
       font-size: 14px;
       font-weight: 600;
       text-decoration: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
       margin-top: 8px;
       transition: opacity 0.2s, transform 0.15s;
     }
@@ -576,7 +595,16 @@
       flex-wrap: wrap;
       gap: 16px;
     }
-    .footer-logo { font-size: 14px; font-weight: 600; color: #fff; letter-spacing: 0.08em; }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 0.08em;
+    }
+    .footer-logo img { height: 26px; width: auto; display: block; filter: brightness(0) invert(1); }
     .footer-logo span { color: var(--pink); }
     .footer-info { font-size: 12px; color: #666; }
     .footer-info a { color: #888; text-decoration: none; }
@@ -604,7 +632,7 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">TAEHAN <span>INT'L</span></div>
+  <div class="nav-logo"><img src="logo.png" alt="Taehan International" /> TAEHAN <span>INT'L</span></div>
   <ul class="nav-links">
     <li><a href="#products">สินค้า</a></li>
     <li><a href="#preorder">รับหิ้วเกาหลี</a></li>
@@ -800,6 +828,7 @@
         <div class="form-group">
           <label for="po-link">ลิงก์สินค้า</label>
           <input type="url" id="po-link" placeholder="https://..." />
+          <p class="form-error" id="po-error">⚠️ กรุณากรอกลิงก์สินค้าก่อนส่งคำขอ</p>
         </div>
         <div class="form-group">
           <label for="po-detail">รายละเอียด (ไซส์ / สี / จำนวน)</label>
@@ -810,10 +839,11 @@
           <input type="text" id="po-contact" placeholder="สำหรับให้เราติดต่อกลับ" />
         </div>
 
-        <a href="https://line.me/R/ti/p/@624lderm" target="_blank" rel="noopener" class="btn-line" id="po-send-btn">
+                <button type="button" class="btn-line" id="po-send-btn">
           ส่งคำขอผ่าน LINE
-        </a>
-        <p class="form-note">กดปุ่มแล้วระบบจะเปิดแชท LINE ให้คุณ — กรุณาแคปหน้านี้หรือพิมพ์ข้อมูลที่กรอกไว้ส่งในแชทด้วยนะคะ</p>
+        </button>
+        <p class="form-note">กดปุ่มแล้วระบบจะเปิดแชท LINE ให้คุณ พร้อมคัดลอกข้อมูลที่กรอกไว้ — แค่กด Paste (วาง) ในแชทได้เลย</p>
+        <p class="form-note">💡 ถ้ามีรูปภาพสินค้าที่ต้องการ สามารถส่งรูปแนบมาในแชท LINE ได้เลยค่ะ</p>
       </div>
     </div>
   </div>
@@ -886,29 +916,41 @@
     </a>
   </div>
   <p style="margin-top:28px; font-size:13px; color:rgba(255,255,255,0.45);">
-    ติดต่อองค์กร: contact@taehaninternational.com
+    ติดต่อองค์กร: satamc@taehanint.com
   </p>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">TAEHAN <span>INT'L</span></div>
+  <div class="footer-logo"><img src="logo.png" alt="Taehan International" /> TAEHAN <span>INT'L</span></div>
   <div class="footer-info">
     © 2025 Taehan International Co., Ltd. · Bangkok, Thailand ·
-    <a href="mailto:contact@taehaninternational.com">contact@taehaninternational.com</a>
+    <a href="mailto:satamc@taehanint.com">satamc@taehanint.com</a>
   </div>
 </footer>
 
 </body>
 <script>
   var poBtn = document.getElementById('po-send-btn');
+  var poLinkInput = document.getElementById('po-link');
+  var poError = document.getElementById('po-error');
+  var LINE_URL = 'https://line.me/R/ti/p/@624lderm';
+
   if (poBtn) {
     poBtn.addEventListener('click', function () {
-      var link = document.getElementById('po-link').value.trim();
+      var link = poLinkInput.value.trim();
       var detail = document.getElementById('po-detail').value.trim();
       var contact = document.getElementById('po-contact').value.trim();
 
-      if (!link) return;
+      if (!link) {
+        poError.classList.add('show');
+        poLinkInput.classList.add('invalid');
+        poLinkInput.focus();
+        return;
+      }
+
+      poError.classList.remove('show');
+      poLinkInput.classList.remove('invalid');
 
       var message = 'สวัสดีค่ะ ขอใบเสนอราคารับหิ้วค่ะ\n' +
         'ลิงก์สินค้า: ' + link + '\n' +
@@ -917,6 +959,15 @@
 
       if (navigator.clipboard) {
         navigator.clipboard.writeText(message).catch(function () {});
+      }
+
+      window.open(LINE_URL, '_blank', 'noopener');
+    });
+
+    poLinkInput.addEventListener('input', function () {
+      if (poLinkInput.value.trim()) {
+        poError.classList.remove('show');
+        poLinkInput.classList.remove('invalid');
       }
     });
   }

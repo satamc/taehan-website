@@ -356,6 +356,71 @@
     }
     .stat-label { font-size: 12px; color: var(--muted); line-height: 1.5; }
 
+    /* PRE-ORDER BANNER (สไตล์ตามภาพตัวอย่าง) */
+    .po-banner {
+      background: linear-gradient(135deg, #FDF0F5 0%, #FBE4ED 100%);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .po-banner-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--pink);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 99px;
+      margin-bottom: 14px;
+    }
+    .po-banner h2 {
+      font-size: clamp(24px, 4vw, 34px);
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+    .po-banner-tags {
+      font-size: 13px;
+      font-weight: 600;
+      color: #993556;
+      letter-spacing: 0.04em;
+      margin-bottom: 24px;
+    }
+    .po-banner-tags span { margin: 0 8px; color: var(--pink-mid); }
+    .po-feature-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .po-feature {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 8px;
+    }
+    .po-feature-icon {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 1.5px solid var(--pink-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+    .po-feature span.label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
     /* PRE-ORDER SECTION */
     .preorder {
       background: linear-gradient(160deg, #F5F0FF 0%, #FDF5F8 100%);
@@ -526,6 +591,8 @@
       .products { padding: 48px 16px; }
       .preorder { padding: 48px 16px; }
       .preorder-grid { grid-template-columns: 1fr; }
+      .po-banner { padding: 24px 18px; }
+      .po-feature-row { grid-template-columns: repeat(2, 1fr); gap: 16px; }
       .why { padding: 48px 16px; }
       .why-inner { grid-template-columns: 1fr; }
       .stats-grid { display: none; }
@@ -658,6 +725,32 @@
 <!-- PRE-ORDER / รับหิ้วเกาหลี -->
 <section class="preorder" id="preorder">
   <div class="preorder-inner">
+
+    <!-- Banner สไตล์ "รับพรีออเดอร์จากเกาหลี" -->
+    <div class="po-banner">
+      <div class="po-banner-badge">🇰🇷 รับพรีออเดอร์จากเกาหลี</div>
+      <h2>สั่งสินค้าเกาหลีจากที่ไหนก็ได้<br>ให้เราหิ้วมาให้คุณ</h2>
+      <div class="po-banner-tags">K-BEAUTY <span>·</span> SKINCARE <span>·</span> LIFESTYLE</div>
+      <div class="po-feature-row">
+        <div class="po-feature">
+          <div class="po-feature-icon">🛍️</div>
+          <span class="label">สั่งตรง<br>จากเกาหลี</span>
+        </div>
+        <div class="po-feature">
+          <div class="po-feature-icon">✅</div>
+          <span class="label">สินค้าแท้<br>100%</span>
+        </div>
+        <div class="po-feature">
+          <div class="po-feature-icon">📦</div>
+          <span class="label">แพ็คสินค้า<br>อย่างดี</span>
+        </div>
+        <div class="po-feature">
+          <div class="po-feature-icon">🚚</div>
+          <span class="label">จัดส่งไว<br>ถึงไทย</span>
+        </div>
+      </div>
+    </div>
+
     <div class="preorder-head">
       <div class="section-eyebrow">บริการรับหิ้ว</div>
       <div class="section-heading">เจอสินค้าเกาหลีที่ชอบ<br>แต่สั่งเองไม่ได้?</div>

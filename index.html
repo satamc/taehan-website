@@ -356,6 +356,120 @@
     }
     .stat-label { font-size: 12px; color: var(--muted); line-height: 1.5; }
 
+    /* PRE-ORDER SECTION */
+    .preorder {
+      background: linear-gradient(160deg, #F5F0FF 0%, #FDF5F8 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 64px 32px;
+    }
+    .preorder-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .preorder-head {
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto 40px;
+    }
+    .preorder-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+    .preorder-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .step-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .step-num {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--pink);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-text h4 { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+    .step-text p { font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+
+    .preorder-form {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+    }
+    .preorder-form h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .preorder-form .form-sub {
+      font-size: 12.5px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .form-group { margin-bottom: 14px; }
+    .form-group label {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      font-size: 13.5px;
+      font-family: inherit;
+      color: var(--text);
+      background: var(--soft);
+      resize: vertical;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--pink);
+      background: var(--white);
+    }
+    .form-note {
+      font-size: 11px;
+      color: #999;
+      margin-top: 4px;
+    }
+    .btn-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      background: #06C755;
+      color: #fff;
+      padding: 13px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 8px;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .btn-line:hover { opacity: 0.9; transform: translateY(-1px); }
+
     /* CTA BANNER */
     .cta-banner {
       background: var(--navy);
@@ -410,6 +524,8 @@
       .hero { padding: 56px 20px 48px; }
       .trust-bar { gap: 16px; padding: 14px 16px; }
       .products { padding: 48px 16px; }
+      .preorder { padding: 48px 16px; }
+      .preorder-grid { grid-template-columns: 1fr; }
       .why { padding: 48px 16px; }
       .why-inner { grid-template-columns: 1fr; }
       .stats-grid { display: none; }
@@ -424,6 +540,7 @@
   <div class="nav-logo">TAEHAN <span>INT'L</span></div>
   <ul class="nav-links">
     <li><a href="#products">สินค้า</a></li>
+    <li><a href="#preorder">รับหิ้วเกาหลี</a></li>
     <li><a href="#why">เกี่ยวกับเรา</a></li>
     <li><a href="#contact">ติดต่อ</a></li>
     <li><a href="#products" class="nav-cta">ดูสินค้า</a></li>
@@ -538,6 +655,77 @@
   </div>
 </section>
 
+<!-- PRE-ORDER / รับหิ้วเกาหลี -->
+<section class="preorder" id="preorder">
+  <div class="preorder-inner">
+    <div class="preorder-head">
+      <div class="section-eyebrow">บริการรับหิ้ว</div>
+      <div class="section-heading">เจอสินค้าเกาหลีที่ชอบ<br>แต่สั่งเองไม่ได้?</div>
+      <div class="section-sub" style="margin-bottom:0;">ส่งลิงก์สินค้าที่อยากได้มาให้เรา เราจัดการสั่งซื้อและนำเข้าให้ถึงมือคุณ</div>
+    </div>
+
+    <div class="preorder-grid">
+      <!-- Steps -->
+      <div>
+        <div class="preorder-steps">
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-text">
+              <h4>ส่งลิงก์สินค้า</h4>
+              <p>วางลิงก์สินค้าจากเว็บเกาหลี (Coupang, Naver, Musinsa ฯลฯ) พร้อมระบุไซส์/สี/จำนวนที่ต้องการ</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-text">
+              <h4>รับใบเสนอราคา</h4>
+              <p>ทีมงานคำนวณราคารวมค่าหิ้ว + ค่าส่ง แล้วแจ้งกลับทาง LINE ภายใน 24 ชม.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-text">
+              <h4>ชำระเงิน</h4>
+              <p>ยืนยันราคาแล้วชำระเงิน ทีมงานจะสั่งซื้อสินค้าให้ทันที</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">4</div>
+            <div class="step-text">
+              <h4>รอรับสินค้า</h4>
+              <p>ติดตามสถานะผ่าน LINE ตั้งแต่สั่งซื้อจนถึงส่งมอบที่ไทย</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="preorder-form">
+        <h3>ขอใบเสนอราคารับหิ้ว</h3>
+        <p class="form-sub">กรอกข้อมูลด้านล่าง แล้วกดส่งไปที่ LINE ของเรา</p>
+
+        <div class="form-group">
+          <label for="po-link">ลิงก์สินค้า</label>
+          <input type="url" id="po-link" placeholder="https://..." />
+        </div>
+        <div class="form-group">
+          <label for="po-detail">รายละเอียด (ไซส์ / สี / จำนวน)</label>
+          <textarea id="po-detail" rows="3" placeholder="เช่น ไซส์ M สีชมพู จำนวน 1 ชิ้น"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="po-contact">เบอร์โทร หรือ LINE ID ของคุณ</label>
+          <input type="text" id="po-contact" placeholder="สำหรับให้เราติดต่อกลับ" />
+        </div>
+
+        <a href="https://line.me/R/ti/p/@624lderm" target="_blank" rel="noopener" class="btn-line" id="po-send-btn">
+          ส่งคำขอผ่าน LINE
+        </a>
+        <p class="form-note">กดปุ่มแล้วระบบจะเปิดแชท LINE ให้คุณ — กรุณาแคปหน้านี้หรือพิมพ์ข้อมูลที่กรอกไว้ส่งในแชทด้วยนะคะ</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- WHY US -->
 <section class="why" id="why">
   <div class="why-inner">
@@ -605,7 +793,7 @@
     </a>
   </div>
   <p style="margin-top:28px; font-size:13px; color:rgba(255,255,255,0.45);">
-    ติดต่อองค์กร: satamc@taehanint.com
+    ติดต่อองค์กร: contact@taehaninternational.com
   </p>
 </section>
 
@@ -614,9 +802,30 @@
   <div class="footer-logo">TAEHAN <span>INT'L</span></div>
   <div class="footer-info">
     © 2025 Taehan International Co., Ltd. · Bangkok, Thailand ·
-    <a href="mailto:satamc@taehanint.com">satamc@taehanint.com</a>
+    <a href="mailto:contact@taehaninternational.com">contact@taehaninternational.com</a>
   </div>
 </footer>
 
 </body>
+<script>
+  var poBtn = document.getElementById('po-send-btn');
+  if (poBtn) {
+    poBtn.addEventListener('click', function () {
+      var link = document.getElementById('po-link').value.trim();
+      var detail = document.getElementById('po-detail').value.trim();
+      var contact = document.getElementById('po-contact').value.trim();
+
+      if (!link) return;
+
+      var message = 'สวัสดีค่ะ ขอใบเสนอราคารับหิ้วค่ะ\n' +
+        'ลิงก์สินค้า: ' + link + '\n' +
+        (detail ? 'รายละเอียด: ' + detail + '\n' : '') +
+        (contact ? 'ช่องทางติดต่อกลับ: ' + contact : '');
+
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(message).catch(function () {});
+      }
+    });
+  }
+</script>
 </html>

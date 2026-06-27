@@ -408,6 +408,57 @@
       line-height: 1.7;
     }
 
+    /* POLICY SECTION (ของเสียหาย / ยกเลิกออเดอร์) */
+    .po-policy {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px 26px;
+      margin-bottom: 40px;
+    }
+    .po-policy-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 18px;
+    }
+    .po-policy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .po-policy-block h5 {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--pink);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .po-policy-block ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .po-policy-block li {
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.6;
+      padding-left: 16px;
+      position: relative;
+    }
+    .po-policy-block li::before {
+      content: '•';
+      color: var(--pink-mid);
+      position: absolute;
+      left: 0;
+    }
+
     /* PRE-ORDER BANNER (สไตล์ตามภาพตัวอย่าง) */
     .po-banner {
       background: linear-gradient(135deg, #FDF0F5 0%, #FBE4ED 100%);
@@ -668,6 +719,8 @@
       .preorder { padding: 48px 16px; }
       .preorder-grid { grid-template-columns: 1fr; }
       .po-info-grid { grid-template-columns: 1fr; }
+      .po-policy { padding: 20px; }
+      .po-policy-grid { grid-template-columns: 1fr; gap: 18px; }
       .po-banner { padding: 24px 18px; }
       .po-feature-row { grid-template-columns: repeat(2, 1fr); gap: 16px; }
       .why { padding: 48px 16px; }
@@ -860,6 +913,31 @@
         <div class="po-info-icon">🚀</div>
         <h4>ระยะเวลาจัดส่ง</h4>
         <p>ทางอากาศ: <span class="highlight">ไม่เกิน 2 สัปดาห์</span><br>ทางเรือ: <span class="highlight">ไม่เกิน 5 สัปดาห์</span><br>(นับจากวันสั่งซื้อสำเร็จ)</p>
+      </div>
+    </div>
+
+    <!-- นโยบายของเสียหาย / ยกเลิกออเดอร์ -->
+    <div class="po-policy">
+      <div class="po-policy-title">📋 เงื่อนไขและนโยบายที่ควรรู้ก่อนใช้บริการ</div>
+      <div class="po-policy-grid">
+        <div class="po-policy-block">
+          <h5>📦 กรณีสินค้าเสียหาย/ไม่ตรงปก</h5>
+          <ul>
+            <li>หากสินค้าเสียหายจากการขนส่งระหว่างประเทศ เราจะดำเนินการเคลมประกันพัสดุให้ทันที</li>
+            <li>หากสินค้าที่ได้รับไม่ตรงตามที่สั่ง (ผิดรุ่น/สี/ไซส์) จากความผิดพลาดของร้านค้าเกาหลี เราจะประสานเปลี่ยน/คืนเงินส่วนนั้นให้</li>
+            <li>กรุณาตรวจสอบและถ่ายวิดีโอตอนแกะกล่องทันที พร้อมแจ้งเราภายใน 24 ชม. หลังได้รับสินค้า</li>
+            <li>กรณีสินค้าที่สั่งหมด/เลิกผลิตหลังชำระมัดจำแล้ว เราจะคืนเงินมัดจำเต็มจำนวน</li>
+          </ul>
+        </div>
+        <div class="po-policy-block">
+          <h5>❌ กรณียกเลิกออเดอร์</h5>
+          <ul>
+            <li><strong>ก่อนชำระมัดจำ:</strong> ยกเลิกได้ฟรี ไม่มีค่าใช้จ่าย</li>
+            <li><strong>หลังชำระมัดจำ แต่ยังไม่สั่งซื้อสินค้า:</strong> ยกเลิกได้ แต่ขอสงวนค่าธรรมเนียมดำเนินการ 10% ของมัดจำ</li>
+            <li><strong>หลังสั่งซื้อสินค้าจากเกาหลีแล้ว:</strong> ไม่สามารถยกเลิกหรือคืนเงินมัดจำได้ เนื่องจากร้านได้ชำระเงินให้ผู้ขายในเกาหลีไปแล้ว</li>
+            <li>กรณีร้านไม่สามารถสั่งซื้อสินค้าให้ได้ (สินค้าหมด/ราคาผิดพลาด) ลูกค้าจะได้รับเงินคืนเต็มจำนวนเสมอ</li>
+          </ul>
+        </div>
       </div>
     </div>
 

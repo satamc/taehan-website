@@ -620,6 +620,34 @@
       color: #999;
       margin-top: 4px;
     }
+    .po-consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      margin: 16px 0 14px;
+      cursor: pointer;
+    }
+    .po-consent input[type="checkbox"] {
+      width: 17px;
+      height: 17px;
+      margin-top: 1px;
+      accent-color: var(--pink);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .po-consent label {
+      font-size: 12.5px;
+      color: var(--text);
+      line-height: 1.6;
+      cursor: pointer;
+    }
+    .po-consent label a {
+      color: var(--pink);
+      text-decoration: underline;
+    }
+    .po-consent.invalid label {
+      color: #d4334f;
+    }
     .form-error {
       font-size: 12px;
       color: #d4334f;
@@ -995,6 +1023,12 @@
           <input type="text" id="po-contact" placeholder="สำหรับให้เราติดต่อกลับ" />
         </div>
 
+        <div class="po-consent" id="po-consent-wrap">
+          <input type="checkbox" id="po-consent" />
+          <label for="po-consent">ฉันได้อ่านและยอมรับ <a href="#preorder">เงื่อนไขการให้บริการ ค่าธรรมเนียม และนโยบายยกเลิก/คืนเงิน</a> ที่ระบุไว้ข้างต้นแล้ว</label>
+        </div>
+        <p class="form-error" id="po-consent-error">⚠️ กรุณายอมรับเงื่อนไขการให้บริการก่อนส่งคำขอ</p>
+
                 <button type="button" class="btn-line" id="po-send-btn">
           ส่งคำขอผ่าน LINE
         </button>
@@ -1090,6 +1124,9 @@
   var poBtn = document.getElementById('po-send-btn');
   var poLinkInput = document.getElementById('po-link');
   var poError = document.getElementById('po-error');
+  var poConsent = document.getElementById('po-consent');
+  var poConsentWrap = document.getElementById('po-consent-wrap');
+  var poConsentError = document.getElementById('po-consent-error');
   var LINE_URL = 'https://line.me/R/ti/p/@624lderm';
 
   if (poBtn) {
@@ -1097,21 +1134,37 @@
       var link = poLinkInput.value.trim();
       var detail = document.getElementById('po-detail').value.trim();
       var contact = document.getElementById('po-contact').value.trim();
+      var hasError = false;
 
       if (!link) {
         poError.classList.add('show');
         poLinkInput.classList.add('invalid');
-        poLinkInput.focus();
-        return;
+        hasError = true;
+      } else {
+        poError.classList.remove('show');
+        poLinkInput.classList.remove('invalid');
       }
 
-      poError.classList.remove('show');
-      poLinkInput.classList.remove('invalid');
+      if (!poConsent.checked) {
+        poConsentError.classList.add('show');
+        poConsentWrap.classList.add('invalid');
+        hasError = true;
+      } else {
+        poConsentError.classList.remove('show');
+        poConsentWrap.classList.remove('invalid');
+      }
+
+      if (hasError) {
+        if (!link) poLinkInput.focus();
+        else poConsentWrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
 
       var message = 'สวัสดีค่ะ ขอใบเสนอราคารับหิ้วค่ะ\n' +
         'ลิงก์สินค้า: ' + link + '\n' +
         (detail ? 'รายละเอียด: ' + detail + '\n' : '') +
-        (contact ? 'ช่องทางติดต่อกลับ: ' + contact : '');
+        (contact ? 'ช่องทางติดต่อกลับ: ' + contact + '\n' : '') +
+        'ยอมรับเงื่อนไขการให้บริการแล้ว: ใช่';
 
       if (navigator.clipboard) {
         navigator.clipboard.writeText(message).catch(function () {});
@@ -1124,6 +1177,13 @@
       if (poLinkInput.value.trim()) {
         poError.classList.remove('show');
         poLinkInput.classList.remove('invalid');
+      }
+    });
+
+    poConsent.addEventListener('change', function () {
+      if (poConsent.checked) {
+        poConsentError.classList.remove('show');
+        poConsentWrap.classList.remove('invalid');
       }
     });
   }

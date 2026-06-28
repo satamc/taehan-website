@@ -227,6 +227,85 @@
       box-shadow: 0 8px 32px rgba(0,0,0,0.08);
       transform: translateY(-3px);
     }
+    .product-card.clickable {
+      cursor: pointer;
+      max-width: 340px;
+    }
+
+    /* MODAL */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(20,20,20,0.55);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .modal-overlay.open {
+      display: flex;
+    }
+    .modal-box {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      max-width: 640px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      position: relative;
+      padding: 32px;
+    }
+    .modal-close {
+      position: absolute;
+      top: 18px; right: 18px;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--soft);
+      border: none;
+      font-size: 18px;
+      color: var(--muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+    }
+    .modal-close:hover { background: var(--border); }
+    .modal-header { margin-bottom: 20px; padding-right: 30px; }
+    .modal-header h3 {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .modal-header p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .scent-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .scent-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .scent-visual {
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 38px;
+      overflow: hidden;
+    }
+    .scent-visual img { height: 100%; width: 100%; object-fit: cover; }
+    .scent-body { padding: 12px 14px; }
+    .scent-name { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+    .scent-desc { font-size: 11.5px; color: var(--muted); line-height: 1.5; }
     .product-visual {
       height: 180px;
       display: flex;
@@ -234,7 +313,17 @@
       justify-content: center;
       font-size: 56px;
       position: relative;
+      overflow: hidden;
     }
+    .product-visual img { height: 100%; width: 100%; object-fit: cover; }
+    .product-visual-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      width: 100%;
+      height: 100%;
+    }
+    .product-visual-grid img { height: 100%; width: 100%; object-fit: cover; display: block; }
     .v-pink  { background: #FDF0F5; }
     .v-blue  { background: #F0F5FD; }
     .v-green { background: #F0FAF5; }
@@ -744,6 +833,8 @@
       .hero { padding: 56px 20px 48px; }
       .trust-bar { gap: 16px; padding: 14px 16px; }
       .products { padding: 48px 16px; }
+      .scent-grid { grid-template-columns: 1fr; }
+      .modal-box { padding: 22px; max-height: 90vh; }
       .preorder { padding: 48px 16px; }
       .preorder-grid { grid-template-columns: 1fr; }
       .po-info-grid { grid-template-columns: 1fr; }
@@ -797,88 +888,77 @@
 <section class="products" id="products">
   <div class="section-eyebrow">สินค้าของเรา</div>
   <div class="section-heading">K-Beauty ที่เราคัดมาเพื่อคุณ</div>
-  <div class="section-sub">กำลังเพิ่มสินค้าใหม่เข้าร้าน — ติดตามสินค้าที่กำลังจะมาเร็วๆ นี้</div>
+  <div class="section-sub">Daily Comma "Bello dé Perfume" Solid Perfume น้ำหอมแท่งจากเกาหลี กำลังจะเปิดขายเร็วๆ นี้</div>
 
   <div class="product-grid">
-
-    <!-- Product 1 -->
-    <div class="product-card">
-      <div class="product-visual v-pink">
-        🌸
+    <div class="product-card clickable" id="open-perfume-modal">
+      <div class="product-visual">
+        <div class="product-visual-grid">
+          <img src="assets/products/dear-rosie.png" alt="Dear Rosie">
+          <img src="assets/products/velvet-wood.png" alt="Velvet Wood">
+          <img src="assets/products/vanilla-jazz.png" alt="Vanilla Jazz">
+          <img src="assets/products/musk-dawn.png" alt="Musk Dawn">
+        </div>
         <span class="coming-badge">Coming Soon</span>
       </div>
       <div class="product-body">
-        <div class="product-name">Hydrating Toner</div>
-        <div class="product-desc">โทนเนอร์บำรุงผิวชุ่มชื้นล้ำลึก สูตรเกาหลี เหมาะกับทุกสภาพผิว</div>
+        <div class="product-name">Bello dé Perfume — Solid Perfume</div>
+        <div class="product-desc">น้ำหอมแท่งจาก Daily Comma มี 4 กลิ่นให้เลือก พกพาง่าย ติดทนทั้งวัน</div>
         <div class="product-tags">
-          <span class="tag">Hydrating</span>
-          <span class="tag">All Skin</span>
+          <span class="tag">Solid Perfume</span>
+          <span class="tag">4 กลิ่น</span>
         </div>
         <div class="buy-row">
-          <span class="buy-btn btn-soon">เร็วๆ นี้</span>
+          <span class="buy-btn btn-soon">คลิกดูทุกกลิ่น →</span>
         </div>
       </div>
     </div>
-
-    <!-- Product 2 -->
-    <div class="product-card">
-      <div class="product-visual v-blue">
-        ✨
-        <span class="coming-badge">Coming Soon</span>
-      </div>
-      <div class="product-body">
-        <div class="product-name">Glow Serum</div>
-        <div class="product-desc">เซรั่มบำรุงผิวกระจ่างใส ช่วยลดรอยจุดด่างดำและผิวหมองคล้ำ</div>
-        <div class="product-tags">
-          <span class="tag">Brightening</span>
-          <span class="tag">Anti-dark spot</span>
-        </div>
-        <div class="buy-row">
-          <span class="buy-btn btn-soon">เร็วๆ นี้</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Product 3 -->
-    <div class="product-card">
-      <div class="product-visual v-green">
-        🍃
-        <span class="coming-badge">Coming Soon</span>
-      </div>
-      <div class="product-body">
-        <div class="product-name">Calming Cream</div>
-        <div class="product-desc">ครีมบำรุงสูตรอ่อนโยน ลดการระคายเคือง เหมาะกับผิวแพ้ง่าย</div>
-        <div class="product-tags">
-          <span class="tag">Sensitive</span>
-          <span class="tag">Soothing</span>
-        </div>
-        <div class="buy-row">
-          <span class="buy-btn btn-soon">เร็วๆ นี้</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Product 4 -->
-    <div class="product-card">
-      <div class="product-visual v-amber">
-        🌟
-        <span class="coming-badge">Coming Soon</span>
-      </div>
-      <div class="product-body">
-        <div class="product-name">Sun Cushion SPF50+</div>
-        <div class="product-desc">คุชชั่นกันแดดสูตรเกาหลี ปกป้องผิวจาก UV พร้อมให้ผิวดูเนียนสวย</div>
-        <div class="product-tags">
-          <span class="tag">SPF50+</span>
-          <span class="tag">PA++++</span>
-        </div>
-        <div class="buy-row">
-          <span class="buy-btn btn-soon">เร็วๆ นี้</span>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
+
+<!-- PRODUCT MODAL -->
+<div class="modal-overlay" id="perfume-modal">
+  <div class="modal-box">
+    <button class="modal-close" id="close-perfume-modal" aria-label="ปิด">✕</button>
+    <div class="modal-header">
+      <h3>Bello dé Perfume — Solid Perfume</h3>
+      <p>น้ำหอมแท่งจาก Daily Comma (เกาหลี) มี 4 กลิ่นให้เลือก พกพาง่าย ทาง่าย ไม่เลอะมือ ติดทนทั้งวัน</p>
+    </div>
+    <div class="scent-grid">
+      <div class="scent-card">
+        <div class="scent-visual"><img src="assets/products/dear-rosie.png" alt="Dear Rosie"></div>
+        <div class="scent-body">
+          <div class="scent-name">Dear Rosie</div>
+          <div class="scent-desc">กลิ่นกุหลาบหอมละมุน อบอุ่น เป็นผู้หญิง</div>
+        </div>
+      </div>
+      <div class="scent-card">
+        <div class="scent-visual"><img src="assets/products/velvet-wood.png" alt="Velvet Wood"></div>
+        <div class="scent-body">
+          <div class="scent-name">Velvet Wood</div>
+          <div class="scent-desc">กลิ่นไม้หอมนวล อบอุ่น ติดทนทั้งวัน</div>
+        </div>
+      </div>
+      <div class="scent-card">
+        <div class="scent-visual"><img src="assets/products/vanilla-jazz.png" alt="Vanilla Jazz"></div>
+        <div class="scent-body">
+          <div class="scent-name">Vanilla Jazz</div>
+          <div class="scent-desc">กลิ่นวานิลลาหอมหวาน อบอุ่น เป็นมิตร</div>
+        </div>
+      </div>
+      <div class="scent-card">
+        <div class="scent-visual"><img src="assets/products/musk-dawn.png" alt="Musk Dawn"></div>
+        <div class="scent-body">
+          <div class="scent-name">Musk Dawn</div>
+          <div class="scent-desc">กลิ่นมัสก์อ่อนละมุน สดชื่นยามเช้า</div>
+        </div>
+      </div>
+    </div>
+    <div class="buy-row" style="margin-top:18px;">
+      <span class="buy-btn btn-soon" style="width:100%; justify-content:center; padding:10px;">สินค้ากำลังจะเปิดขายเร็วๆ นี้</span>
+    </div>
+  </div>
+</div>
 
 <!-- PRE-ORDER / รับหิ้วเกาหลี -->
 <section class="preorder" id="preorder">
@@ -1121,6 +1201,33 @@
 
 </body>
 <script>
+  var perfumeModal = document.getElementById('perfume-modal');
+  var openModalBtn = document.getElementById('open-perfume-modal');
+  var closeModalBtn = document.getElementById('close-perfume-modal');
+
+  if (openModalBtn) {
+    openModalBtn.addEventListener('click', function () {
+      perfumeModal.classList.add('open');
+    });
+  }
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener('click', function () {
+      perfumeModal.classList.remove('open');
+    });
+  }
+  if (perfumeModal) {
+    perfumeModal.addEventListener('click', function (e) {
+      if (e.target === perfumeModal) {
+        perfumeModal.classList.remove('open');
+      }
+    });
+  }
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && perfumeModal) {
+      perfumeModal.classList.remove('open');
+    }
+  });
+
   var poBtn = document.getElementById('po-send-btn');
   var poLinkInput = document.getElementById('po-link');
   var poError = document.getElementById('po-error');
